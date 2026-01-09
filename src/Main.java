@@ -1,6 +1,7 @@
-import main.java.BankProcessor;
-import main.java.SavingsAccount;
+import main.java.bank.BankProcessor;
+import main.java.bank.SavingsAccount;
 import main.java.User;
+import main.java.bank.notification.*;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -49,4 +50,37 @@ void main() {
     processor.giveBonus(mySavings); // Polymorphism in action
 
     System.out.println("Final Balance: " + mySavings.getBalance());
+
+    /* Sealed class concept */
+
+    // 1. Initialize the Service
+    NotificationService service = new NotificationService();
+
+    // 2. Create different types of notifications
+    // Using a Record
+    Notification sms = new SMS("Your OTP is 1234", "+123456789");
+
+    // Using a standard class
+    Notification email = new Email("Welcome to our platform!", "user@example.com");
+
+    // Using the 'non-sealed' extension (Polymorphism in action)
+    Notification marketing = new MarketingEmail("Big Sale Today!", "customer@test.com", "SUMMER_2026");
+
+    // Using a high-priority system alert
+    Notification alert = new SystemAlert("Database Connection Lost", 500);
+
+    // 3. Execute processing
+    System.out.println("--- Processing SMS ---");
+    service.processNotification(sms);
+
+    System.out.println("\n--- Processing Standard Email ---");
+    service.processNotification(email);
+
+    System.out.println("\n--- Processing Marketing Email ---");
+    // This works because MarketingEmail extends Email, which implements Notification
+    service.processNotification(marketing);
+
+    System.out.println("\n--- Processing System Alert ---");
+    service.processNotification(alert);
+
 }

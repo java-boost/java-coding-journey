@@ -1,4 +1,4 @@
-package main.java;
+package main.java.bank;
 
 // The "Contract"
 public interface PaymentMethod {
