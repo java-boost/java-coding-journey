@@ -2,6 +2,8 @@ import main.java.bank.BankProcessor;
 import main.java.bank.SavingsAccount;
 import main.java.User;
 import main.java.bank.notification.*;
+import main.java.bank.service.Result;
+import main.java.bank.service.UserService;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -22,10 +24,7 @@ void main() {
     int[] primitiveArray = {456000000,3456,5678};
 
 
-    User newUser = new User();
-    newUser.setFirstName("Vamsi");
-    newUser.setMiddleName("Krishna");
-    newUser.setLastName("Suryadevara");
+    User newUser = new User("Vamsi","Krishna","Suryadevara");
 
     System.out.println(verySmallNumeric);
     System.out.println(smallNumeric);
@@ -82,5 +81,18 @@ void main() {
 
     System.out.println("\n--- Processing System Alert ---");
     service.processNotification(alert);
+
+    /* Result patter example*/
+    UserService userService = new UserService();
+    Result<User> result = userService.getUserById("");
+
+    // Pattern matching extracts the data automatically
+    String message = switch (result) {
+        case Result.Success<User> s -> "User found: " + s.data().firstName();
+        case Result.Failure<User> f -> "Error [" + f.errorCode() + "]: " + f.message();
+        case Result.Loading<User> l -> "Fetching data... please wait.";
+    };
+
+    System.out.println(message);
 
 }
