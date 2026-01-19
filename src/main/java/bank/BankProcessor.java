@@ -1,4 +1,4 @@
-package main.java.bank;
+package bank;
 
 public class BankProcessor {
     public void giveBonus(BankAccount account) {

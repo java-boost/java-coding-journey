@@ -1,4 +1,4 @@
-package main.java.bank.service;
+package bank.service;
 
 import main.java.User;
 

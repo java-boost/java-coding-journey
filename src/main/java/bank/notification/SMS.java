@@ -1,4 +1,4 @@
-package main.java.bank.notification;
+package bank.notification;
 
 // 2. SMS is 'final' (No one can extend this)
 public final record SMS(String content, String phoneNumber) implements Notification {

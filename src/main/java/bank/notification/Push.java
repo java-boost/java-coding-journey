@@ -1,4 +1,4 @@
-package main.java.bank.notification;
+package bank.notification;
 
 // 3. Push is 'final'
 public final record Push(String content, String deviceToken) implements Notification {

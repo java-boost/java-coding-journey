@@ -1,4 +1,4 @@
-package main.java.bank.notification;
+package bank.notification;
 
 public final record WhatsApp(String content, String phoneNumber) implements Notification {
     @Override

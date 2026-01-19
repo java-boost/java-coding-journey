@@ -1,4 +1,4 @@
-package main.java.bank;
+package bank;
 
 // SavingsAccount IS-A BankAccount
 public class SavingsAccount extends BankAccount {
