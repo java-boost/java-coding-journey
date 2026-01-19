@@ -1,4 +1,4 @@
-package main.java.bank;
+package bank;
 
 // The "Implementation"
 public class CreditCard implements PaymentMethod {

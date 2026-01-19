@@ -1,4 +1,4 @@
-package main.java.bank.notification;
+package bank.notification;
 
 public non-sealed class Email implements Notification {
     private final String content;

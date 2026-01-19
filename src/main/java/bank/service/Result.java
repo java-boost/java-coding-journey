@@ -1,4 +1,4 @@
-package main.java.bank.service;
+package bank.service;
 
 public sealed interface Result<T> permits Result.Success, Result.Failure, Result.Loading {
 

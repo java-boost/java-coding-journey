@@ -1,4 +1,4 @@
-package main.java.bank;
+package bank;
 
 public class BankAccount {
     private double balance; // Hidden data
